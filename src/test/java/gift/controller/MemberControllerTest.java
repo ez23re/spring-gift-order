@@ -2,6 +2,7 @@ package gift.controller;
 
 import gift.dto.MemberDto;
 import gift.service.MemberService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,15 @@ public class MemberControllerTest {
     @MockBean
     private MemberService memberService;
 
+    private MemberDto memberDto;
+
+    @BeforeEach
+    void setUp() {
+        memberDto = new MemberDto(1L, "john.doe@example.com", "password123", "token");
+    }
+
     @Test
     void registerMember() throws Exception {
-        MemberDto memberDto = new MemberDto(1L, "john.doe@example.com", "password123", "token");
         given(memberService.register(any(MemberDto.class))).willReturn(memberDto);
 
         mockMvc.perform(post("/member/register")
@@ -44,7 +51,6 @@ public class MemberControllerTest {
 
     @Test
     void loginMember() throws Exception {
-        MemberDto memberDto = new MemberDto(1L, "john.doe@example.com", "password123", "token");
         given(memberService.login("john.doe@example.com", "password123")).willReturn(memberDto);
 
         mockMvc.perform(post("/member/login")

@@ -17,9 +17,9 @@ public class HomeController {
             model.addAttribute("message", "Welcome to the Home Page!");
             model.addAttribute("accessToken", accessToken);
         } else {
-            model.addAttribute("message", "로그인을 먼저 해주세요.");
+            model.addAttribute("message", "Please log in first.");
         }
 
-        return "home"; // home.html 보여주기
+        return "home"; // home.html 템플릿을 렌더링
     }
 }

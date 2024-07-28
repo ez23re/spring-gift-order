@@ -29,22 +29,6 @@ public class Option {
         this.quantity = quantity;
     }
 
-    public void assignToProduct(Product product) {
-        if (product == null) {
-            throw new IllegalArgumentException("수량은 0개 이상이어야 합니다.");
-        }
-        this.product = product;
-    }
-
-    public void removeFromProduct() {
-        this.product = null;
-    }
-
-    public void subtractQuantity(int quantityToSubtract) {
-        OptionQuantity optionQuantity = new OptionQuantity(this.quantity);
-        this.quantity = optionQuantity.subtract(quantityToSubtract).getQuantity();
-    }
-
     public Long getId() {
         return id;
     }
@@ -59,5 +43,21 @@ public class Option {
 
     public Product getProduct() {
         return product;
+    }
+
+    public void assignToProduct(Product product) {
+        if (product == null) {
+            throw new IllegalArgumentException("수량은 0개 이상이어야 합니다.");
+        }
+        this.product = product;
+    }
+
+    public void removeFromProduct() {
+        this.product = null;
+    }
+
+    public void subtractQuantity(int quantityToSubtract) {
+        OptionQuantity optionQuantity = new OptionQuantity(this.quantity);
+        this.quantity = optionQuantity.subtract(quantityToSubtract).getQuantity();
     }
 }

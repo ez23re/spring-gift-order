@@ -18,17 +18,12 @@ public class Wish {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "option_id", nullable = false)
-    private Option option;
-
     protected Wish() {
     }
 
-    public Wish(Member member, Product product, Option option) {
+    public Wish(Member member, Product product) {
         this.member = member;
         this.product = product;
-        this.option = option;
     }
 
     public Long getId() {
@@ -41,9 +36,5 @@ public class Wish {
 
     public Product getProduct() {
         return product;
-    }
-
-    public Option getOption() {
-        return option;
     }
 }

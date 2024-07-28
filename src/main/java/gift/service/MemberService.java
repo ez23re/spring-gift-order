@@ -3,6 +3,7 @@ package gift.service;
 import gift.dto.MemberDto;
 import gift.entity.Member;
 import gift.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
